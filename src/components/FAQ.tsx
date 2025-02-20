@@ -18,7 +18,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, defaultOpen = false
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex justify-between items-center py-4 px-6 text-left text-white hover:bg-gray-800 rounded-2xl"
       >
-        <span className="text-lg font-semibold">{question}</span>
+        <span className="text-xl font-semibold">{question}</span>
         {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
       </button>
       <motion.div
