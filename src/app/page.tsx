@@ -7,12 +7,12 @@ import SkillsList from "@/components/SkillsList";
 export default function Home() {
   return (
     <main className="flex flex-col w-full">
-      {/* Sezione About */}
+      {/* About */}
       <SectionWrapper title="About" bgColor="bg-gray-900">
         <FAQ />
       </SectionWrapper>
 
-      {/* Sezione Skills */}
+      {/* Skills */}
       <SectionWrapper title="Skills" bgColor="bg-green-500">
         <SkillsList />
       </SectionWrapper>
