@@ -13,7 +13,7 @@ export default function Home() {
       </SectionWrapper>
 
       {/* Skills */}
-      <SectionWrapper title="Skills" bgColor="bg-green-500">
+      <SectionWrapper title="Skills?" bgColor="bg-green-500">
         <SkillsList />
       </SectionWrapper>
     </main>
