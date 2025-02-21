@@ -12,15 +12,16 @@ export default function SectionWrapper({ title, children, bgColor }: SectionProp
   const childrenArray = Array.isArray(children) ? children : [children];
 
   return (
-    <section className={`min-h-screen ${bgColor} w-full relative px-20 py-20`}>
-      {/* Contenitore per titolo + toggle */}
-      <div className="flex flex-col w-1/2">
-        <h2 className="text-9xl font-bold text-white">{title}</h2>
-        <div className="mt-12">{childrenArray[0]}</div> {/* Qui mettiamo i toggle */}
+    <section className={`min-h-screen ${bgColor} w-full px-20 py-20`}>
+      <div className="flex flex-row justify-between items-start h-full gap-20">
+        <div className="w-1/2">
+          <h2 className="text-9xl font-bold text-white">{title}</h2>
+          {Array.isArray(children) && children[0]}
+        </div>
+        <div className="w-1/2 flex flex-col items-end">
+          {Array.isArray(children) ? children[1] : children}
+        </div>
       </div>
-
-      {/* Contenitore per la lista delle skills */}
-      <div className="w-1/2 flex items-center">{childrenArray[1]}</div>
     </section>
   );
 }

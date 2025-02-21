@@ -52,8 +52,8 @@ export default function FAQ() {
   ];
 
   return (
-    <div className="flex justify-center items-center">
-      <div className="max-w-2xl w-full bg-gray-800 text-white rounded-3xl shadow-lg overflow-hidden p-6">
+    <div className="w-full">
+      <div className="w-full bg-gray-800 text-white rounded-3xl shadow-lg overflow-hidden p-6">
         {faqs.map((faq, index) => (
           <FAQItem key={index} {...faq} />
         ))}

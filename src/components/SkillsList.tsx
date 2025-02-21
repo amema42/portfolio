@@ -1,9 +1,9 @@
+// SkillsList.tsx
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Reorder } from "framer-motion";
 import { SkillItem } from "./SkillItem";
-import SkillsToggle from "./SkillsToggle";
 
 const allSkills = {
   frontend: [
@@ -23,34 +23,48 @@ const allSkills = {
   ],
 };
 
-export default function SkillsList() {
-  const [selectedSkills, setSelectedSkills] = useState(allSkills.frontend);
+interface Filters {
+  frontend: boolean;
+  backend: boolean;
+  tools: boolean;
+}
 
-  const handleToggle = useCallback((filters: { frontend: boolean; backend: boolean; tools: boolean }) => {
+interface SkillsListProps {
+  activeFilters: Filters; // riceviamo i filtri dal padre
+}
+
+export default function SkillsList({ activeFilters }: SkillsListProps) {
+  const [selectedSkills, setSelectedSkills] = useState(() => {
+    // Inizialmente, se vuoi che parta con solo "frontend" attivo:
+    return allSkills.frontend;
+  });
+
+  // Ogni volta che cambiano i filtri, ricalcoliamo la lista delle skill
+  useEffect(() => {
     const newSkills = [
-      ...(filters.frontend ? allSkills.frontend : []),
-      ...(filters.backend ? allSkills.backend : []),
-      ...(filters.tools ? allSkills.tools : []),
+      ...(activeFilters.frontend ? allSkills.frontend : []),
+      ...(activeFilters.backend ? allSkills.backend : []),
+      ...(activeFilters.tools ? allSkills.tools : []),
     ];
     setSelectedSkills(newSkills);
-  }, []);
+  }, [activeFilters]);
 
   const handleReorder = (newOrder: typeof selectedSkills) => {
     setSelectedSkills(newOrder);
   };
 
   return (
-    <div className="flex flex-col items-start w-full pl-20">
-      <div className="w-full">
-        <SkillsToggle onToggle={handleToggle} />
-      </div>
-      <div className="absolute right-20 top-1/2 -translate-y-1/2 w-[400px]">
-        <Reorder.Group axis="y" values={selectedSkills} onReorder={handleReorder} className="space-y-3">
-          {selectedSkills.map((skill) => (
-            <SkillItem key={skill.id} skill={skill} />
-          ))}
-        </Reorder.Group>
-      </div>
+    <div>
+      <Reorder.Group
+        axis="y"
+        values={selectedSkills}
+        onReorder={handleReorder}
+        className="space-y-3 w-full"
+      >
+        {selectedSkills.map((skill) => (
+          <SkillItem key={skill.id} skill={skill} />
+        ))}
+      </Reorder.Group>
     </div>
   );
 }

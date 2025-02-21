@@ -13,7 +13,7 @@ function ToggleSwitch({ label, isActive, onClick }: ToggleProps) {
   return (
     <MotionConfig transition={{ duration: 0.3, ease: "easeOut" }}>
       <motion.div
-        className="flex items-center justify-between w-60 bg-gray-800 text-white px-4 py-3 rounded-xl cursor-pointer shadow-md"
+        className="flex items-center justify-between w-60 bg-gray-800 text-white px-4 py-3 rounded-full cursor-pointer shadow-md"
         onClick={onClick}
       >
         <span className="text-lg">{label}</span>
@@ -51,7 +51,7 @@ export default function SkillsToggle({ onToggle }: { onToggle: (filters: { front
   };
 
   return (
-    <div className="space-y-3 w-[280px]">
+    <div className=" mt-4 space-y-3 w-[280px]">
       <ToggleSwitch label="Front-end" isActive={activeFilters.frontend} onClick={() => toggleCategory("frontend")} />
       <ToggleSwitch label="Back-end" isActive={activeFilters.backend} onClick={() => toggleCategory("backend")} />
       <ToggleSwitch label="Tools" isActive={activeFilters.tools} onClick={() => toggleCategory("tools")} />
