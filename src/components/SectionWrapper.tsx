@@ -1,3 +1,4 @@
+// SectionWrapper.tsx
 "use client";
 
 import { ReactNode } from "react";
@@ -12,17 +13,19 @@ export default function SectionWrapper({ title, children, bgColor }: SectionProp
   const childrenArray = Array.isArray(children) ? children : [children];
 
   return (
-    <section className={`min-h-screen ${bgColor} w-full px-20 py-20`}>
-      <div className="flex flex-row justify-between items-start h-full gap-20">
-        <div className="w-1/2">
-          <h2 className="text-9xl font-bold text-white">{title}</h2>
-          {Array.isArray(children) && children[0]}
-        </div>
-        <div className="w-1/2 flex flex-col items-end">
-          {Array.isArray(children) ? children[1] : children}
+    <section className={`min-h-screen ${bgColor} w-full py-8 md:py-20`}>
+      <div className="w-full mx-auto px-4 md:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
+          <div className="w-full md:w-1/2">
+            {/* Title with adaptable font-size  */}
+            <h2 className="text-6xl md:text-9xl font-bold text-white mb-4">{title}</h2>
+            {Array.isArray(children) && children[0]}
+          </div>
+          <div className="md:w-1/2">
+            {Array.isArray(children) ? children[1] : children}
+          </div>
         </div>
       </div>
     </section>
   );
 }
-

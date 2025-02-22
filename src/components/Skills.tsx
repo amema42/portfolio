@@ -1,4 +1,3 @@
-// components/Skills.tsx
 "use client";
 
 import { useState, useCallback } from 'react';

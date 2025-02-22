@@ -1,4 +1,3 @@
-// SkillsList.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -30,16 +29,14 @@ interface Filters {
 }
 
 interface SkillsListProps {
-  activeFilters: Filters; // riceviamo i filtri dal padre
+  activeFilters: Filters;
 }
 
 export default function SkillsList({ activeFilters }: SkillsListProps) {
   const [selectedSkills, setSelectedSkills] = useState(() => {
-    // Inizialmente, se vuoi che parta con solo "frontend" attivo:
     return allSkills.frontend;
   });
 
-  // Ogni volta che cambiano i filtri, ricalcoliamo la lista delle skill
   useEffect(() => {
     const newSkills = [
       ...(activeFilters.frontend ? allSkills.frontend : []),
@@ -59,7 +56,7 @@ export default function SkillsList({ activeFilters }: SkillsListProps) {
         axis="y"
         values={selectedSkills}
         onReorder={handleReorder}
-        className="space-y-3 w-full"
+        className="grid sm:grid-cols-2 gap-4"
       >
         {selectedSkills.map((skill) => (
           <SkillItem key={skill.id} skill={skill} />

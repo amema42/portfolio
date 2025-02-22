@@ -20,7 +20,7 @@ export function SkillItem({ skill }: SkillProps) {
       style={{ boxShadow, y }}
       dragListener={false}
       dragControls={dragControls}
-      className="flex justify-between rounded-full items-center bg-white text-pink-600 px-5 py-3 shadow-md cursor-pointer w-72 min-h-16"
+      className="flex justify-between rounded-full items-center bg-white text-pink-600 px-5 py-3 shadow-md cursor-pointer w-full sm:w-72 sm:grid-cols-2 min-h-16"
     >
       <span className="text-2xl whitespace-nowrap overflow-hidden text-ellipsis">{skill.emoji} <strong>{skill.name}</strong></span>
       <DragIcon dragControls={dragControls} />

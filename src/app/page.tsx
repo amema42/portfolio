@@ -1,11 +1,11 @@
 // Home.tsx
 "use client";
-
+import { useState } from "react";
 import SectionWrapper from "@/components/SectionWrapper";
 import FAQ from "@/components/FAQ";
 import SkillsList from "@/components/SkillsList";
 import SkillsToggle from "@/components/SkillsToggle";
-import { useState } from "react";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   // Stato per i filtri
@@ -17,18 +17,17 @@ export default function Home() {
 
   return (
     <main className="flex flex-col w-full">
-      {/* About */}
-      <SectionWrapper title="About" bgColor="bg-gray-900">
+      <SectionWrapper title="About"  bgColor="bg-gray-900">
         <FAQ />
       </SectionWrapper>
 
-      {/* Skills */}
-      <SectionWrapper title="Skills?" bgColor="bg-green-500">
-        {/* UN SOLO TOGGLE */}
+      <SectionWrapper title="Skills" bgColor="bg-green-500">
         <SkillsToggle onToggle={(newFilters) => setFilters(newFilters)} />
 
-        {/* Passo i filtri al componente SkillsList */}
         <SkillsList activeFilters={filters} />
+      </SectionWrapper>
+      <SectionWrapper title="Progetti" bgColor="bg-blue-500">
+        <Projects />
       </SectionWrapper>
     </main>
   );
