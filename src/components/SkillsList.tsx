@@ -56,7 +56,7 @@ export default function SkillsList({ activeFilters }: SkillsListProps) {
         axis="y"
         values={selectedSkills}
         onReorder={handleReorder}
-        className="grid sm:grid-cols-2 gap-4"
+        className="grid sm:grid-cols-1 gap-4"
       >
         {selectedSkills.map((skill) => (
           <SkillItem key={skill.id} skill={skill} />

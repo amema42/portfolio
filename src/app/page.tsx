@@ -17,16 +17,16 @@ export default function Home() {
 
   return (
     <main className="flex flex-col w-full">
-      <SectionWrapper title="About"  bgColor="bg-gray-900">
+      <SectionWrapper title="About"  bgColor="bg-rich-black" titleColor="text-white">
         <FAQ />
       </SectionWrapper>
 
-      <SectionWrapper title="Skills" bgColor="bg-green-500">
+      <SectionWrapper title="Skills" bgColor="bg-green-yellow" titleColor="text-black">
         <SkillsToggle onToggle={(newFilters) => setFilters(newFilters)} />
 
         <SkillsList activeFilters={filters} />
       </SectionWrapper>
-      <SectionWrapper title="Progetti" bgColor="bg-blue-500">
+      <SectionWrapper title="Projects" bgColor="bg-rich-black" titleColor="text-white">
         <Projects />
       </SectionWrapper>
     </main>

@@ -7,9 +7,10 @@ interface SectionProps {
   title: string;
   children: ReactNode | ReactNode[];
   bgColor: string;
+  titleColor?: string;
 }
 
-export default function SectionWrapper({ title, children, bgColor }: SectionProps) {
+export default function SectionWrapper({ title, children, bgColor, titleColor }: SectionProps) {
   const childrenArray = Array.isArray(children) ? children : [children];
 
   return (
@@ -18,7 +19,7 @@ export default function SectionWrapper({ title, children, bgColor }: SectionProp
         <div className="flex flex-col md:flex-row justify-between items-start gap-8">
           <div className="w-full md:w-1/2">
             {/* Title with adaptable font-size  */}
-            <h2 className="text-6xl md:text-9xl font-bold text-white mb-4">{title}</h2>
+            <h2 className={`text-6xl md:text-9xl font-bold mb-4 ${titleColor || ""}`}> {title} </h2>
             {Array.isArray(children) && children[0]}
           </div>
           <div className="md:w-1/2">
