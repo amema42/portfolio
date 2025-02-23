@@ -13,7 +13,7 @@ function ToggleSwitch({ label, isActive, onClick }: ToggleProps) {
   return (
     <MotionConfig transition={{ duration: 0.3, ease: "easeOut" }}>
       <motion.div
-        className="flex items-center justify-between w-60 bg-gray-800 text-white px-4 py-3 rounded-full cursor-pointer shadow-md"
+        className="flex items-center justify-between w-60 bg-gray-800 text-white px-4 py-3 rounded-full cursor-pointer "
         onClick={onClick}
       >
         <span className="text-lg">{label}</span>
