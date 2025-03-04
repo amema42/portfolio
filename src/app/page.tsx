@@ -6,6 +6,7 @@ import FAQ from "@/components/FAQ";
 import SkillsList from "@/components/SkillsList";
 import SkillsToggle from "@/components/SkillsToggle";
 import Projects from "@/components/Projects";
+import Portfolio from "@/components/portfolio1";
 
 export default function Home() {
   // Stato per i filtri
@@ -29,6 +30,8 @@ export default function Home() {
       <SectionWrapper title="projects" bgColor="bg-rich-black" titleColor="text-white">
         <Projects />
       </SectionWrapper>
+      <Portfolio></Portfolio>
     </main>
+
   );
 }
